@@ -14,10 +14,10 @@ namespace TrainingRecordManager
     {
         private readonly DatabaseManager _dbManager = new DatabaseManager();
 
-        private readonly string[] ExpectedHeaders =
-        {
-            "姓名", "身份证", "培训时间", "培训地点", "培训单位", "培训内容", "费用", "备注"
-        };
+        //private readonly string[] ExpectedHeaders =
+        //{
+        //    "姓名", "身份证", "培训时间", "培训地点", "培训单位", "培训内容", "费用", "备注"
+        //};
 
         private readonly string[] EmployeesExpectedHeaders =
 {
