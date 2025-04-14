@@ -1,0 +1,31 @@
+﻿<metro:MetroWindow x:Class="TrainingRecordManager.HomePage"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                   Title="主页" Height="400" Width="600" 
+                   ResizeMode="NoResize"
+                   Loaded="MetroWindow_Loaded"
+                   metro:MetroWindow.GlowBrush="{DynamicResource AccentColorBrush}">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="文件录入" Style="{StaticResource CustomButtonStyle}" Width="150" Margin="10" Click="ImportFileButton_Click"/>
+           <!-- <Button Content="手动录入" Style="{StaticResource CustomButtonStyle}" Width="150" Margin="10" Click="ManualInputButton_Click"/>-->
+            <Button Content="查询页面" Style="{StaticResource CustomButtonStyle}"  Width="150" Margin="10" Click="QueryPageyButton_Click"/>
+            <!--<Button Content="导出EXCEL"  Style="{StaticResource CustomButtonStyle}" Width="150" Margin="10" Click="ExportToExcelButton_Click"/>-->
+            <Button Content="API设置"  Style="{StaticResource CustomButtonStyle}" Width="150" Margin="10" Click="ApiSettingsButton_Click"/>
+        </StackPanel>
+
+        <!-- API设置对话框 -->
+        <metro:Flyout x:Name="ApiSettingsFlyout" Position="Right" Width="300">
+            <StackPanel Margin="20">
+                <TextBlock Text="API设置" FontSize="20" Margin="0,0,0,20"/>
+                <TextBlock Text="API地址:" Margin="0,0,0,5"/>
+                <TextBox x:Name="ApiUrlTextBox" Margin="0,0,0,10"/>
+                <Button Content="测试连接" Style="{StaticResource CustomButtonStyle}" Click="TestApiConnection_Click" Margin="0,0,0,10"/>
+                <Button Content="保存设置" Style="{StaticResource CustomButtonStyle}" Click="SaveApiSettings_Click" Margin="0,0,0,10"/>
+                <TextBlock x:Name="ConnectionStatusText" Margin="0,10,0,0"/>
+            </StackPanel>
+        </metro:Flyout>
+    </Grid>
+</metro:MetroWindow>

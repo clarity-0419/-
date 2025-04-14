@@ -1,0 +1,77 @@
+﻿<metro:MetroWindow x:Class="TrainingRecordManager.SummaryPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Loaded="MetroWindow_Loaded"
+        xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="甲供材出库单上传系统" Height="800" Width="1200" 
+        ResizeMode="NoResize"
+        metro:MetroWindow.GlowBrush="{DynamicResource AccentColorBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="375*"/>
+            <ColumnDefinition Width="419*"/>
+            <ColumnDefinition Width="706*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="10,10,10,10" Grid.ColumnSpan="3">
+            <TextBlock FontSize="24" FontWeight="Bold" Text="甲供材出库单列表" Margin="0,20,0,10"/>
+            <!-- 原有 DataGrid -->
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <DataGrid x:Name="Employee" 
+                          AutoGenerateColumns="False" 
+                          Margin="0,10,0,0" 
+                          Height="300" 
+                          CanUserAddRows="False" 
+                          IsReadOnly="True" 
+                          RowHeight="30" 
+                          AlternatingRowBackground="LightGray"
+                          Background="White"
+                          BorderBrush="Gray" 
+                          BorderThickness="1" SelectionChanged="Employee_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="序号" Binding="{Binding Id}" Width="50" CanUserSort="False"/>
+                        <DataGridTextColumn Header="凭证日期" Binding="{Binding Pingzhengriqi}" Width="100"/>
+                        <DataGridTextColumn Header="项目定义描述" Binding="{Binding Xiangmudingyi}" Width="100"/>
+                        <DataGridTextColumn Header="WBS" Binding="{Binding WBS}" Width="100"/>
+                        <DataGridTextColumn Header="网络" Binding="{Binding Wangluo}" Width="100"/>
+                        <DataGridTextColumn Header="物料编码" Binding="{Binding Wuliaoid}" Width="100"/>
+                        <DataGridTextColumn Header="物料描述" Binding="{Binding Wuliaomiaoshu}" Width="100"/>
+                        <DataGridTextColumn Header="计量单位" Binding="{Binding Jiliangdanwei}" Width="100"/>
+                        <DataGridTextColumn Header="数量" Binding="{Binding Shuliang}" Width="100"/>
+                        <DataGridTextColumn Header="移动平均价" Binding="{Binding Yidongpingjunjia}" Width="100"/>
+                        <DataGridTextColumn Header="本位币金额" Binding="{Binding Benweibijine}" Width="100"/>
+                        <DataGridTextColumn Header="移动类型" Binding="{Binding Yidongleixing}" Width="100"/>
+                        <DataGridTextColumn Header="物料凭证" Binding="{Binding Wuliaopingzheng}" Width="100"/>
+                        <DataGridTextColumn Header="经办人" Binding="{Binding Jingbanren}" Width="100"/>
+                        <DataGridTextColumn Header="领料单位" Binding="{Binding Lingliaodanwei}" Width="100"/>
+                        <DataGridTextColumn Header="采购订单/行项目" Binding="{Binding Caigoudingdan}" Width="100"/>
+                        <DataGridTextColumn Header="供应商描述" Binding="{Binding gongyishangmiaoshu}" Width="100"/>
+                        <DataGridTemplateColumn Header="导出" Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="导出" Click="OputDocxButton_Click" Tag="{Binding Wuliaoid}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="删除" Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="删除" Click="DeleteButton_Click" Tag="{Binding Wuliaoid}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+            <!-- 新增查询按钮 -->
+            <Button Content="查询" Style="{StaticResource ModernButtonStyle03}" Margin="0,10,0,0" Click="QueryButton_Click"/>
+            <Button Content="导出全部" Style="{StaticResource ModernButtonStyle03}" Margin="0,10,0,0" Click="OputAllocxButton_Click" />
+            <!--<Button Content="详细导出" Style="{StaticResource ModernButtonStyle03}" Margin="0,10,0,0" Click="GoToFilterAndExport_Click" />-->
+            <Button Content="返回主页" Style="{StaticResource ModernButtonStyle03}" Margin="0,10,0,0" Click="GoToHomePage_Click" />
+        </StackPanel>
+    </Grid>
+
+</metro:MetroWindow>
