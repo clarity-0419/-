@@ -11,7 +11,7 @@ public class WordDocumentGenerator
 {
     public void CreateTrainingRecordDocument(string filePath, EmployeeInfo employee)
     {
-        
+        // 检查文件路径的目录是否存在，如果不存在，则创建它
         string directoryPath = Path.GetDirectoryName(filePath);
         if (!Directory.Exists(directoryPath))
         {
