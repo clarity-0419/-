@@ -17,7 +17,7 @@ namespace TrainingRecordManager
 
         private bool isVisible = false;
 
-        private DataGridRow _editingRow; // 保存正在编辑的行
+        private DataGridRow _editingRow; //
         private Button _currentEditButton; // 保存当前编辑按钮
 
         DatabaseManager dbManager = new DatabaseManager();
