@@ -374,34 +374,34 @@ namespace TrainingRecordManager
                 EnableRowEditing(_editingRow, grid); // 重新激活行编辑
             }
         }
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
-        {
-            var button = sender as Button;
-            if (button == null) return;
+        //private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var button = sender as Button;
+        //    if (button == null) return;
 
-            string data = button.Tag.ToString(); // 获取身份证号
+        //    string data = button.Tag.ToString(); // 获取身份证号
 
-            // 第一次确认删除
-            if (MessageBox.Show($"确定删除：{data}？", "确认删除", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
-                return;
+        //    // 第一次确认删除
+        //    if (MessageBox.Show($"确定删除：{data}？", "确认删除", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+        //        return;
 
-            // 第二次确认是否继续删除
-            if (MessageBox.Show("删除操作不可恢复，是否继续？", "再次确认", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
-                return;
+        //    // 第二次确认是否继续删除
+        //    if (MessageBox.Show("删除操作不可恢复，是否继续？", "再次确认", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+        //        return;
 
-            try
-            {
-                dbManager.DeleteEmployeeDataByIDCard(data);
+        //    try
+        //    {
+        //        dbManager.DeleteEmployeeDataByIDCard(data);
 
-                MessageBox.Show($"删除成功：{data}");
+        //        MessageBox.Show($"删除成功：{data}");
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"删除失败：{ex.Message}");
-            }
-            AddTrainingRecord();
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"删除失败：{ex.Message}");
+        //    }
+        //    AddTrainingRecord();
+        //}
 
         // 获取单元格的值
         private string GetCellValue(DataGridRow row, int columnIndex)

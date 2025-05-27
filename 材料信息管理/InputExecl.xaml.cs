@@ -194,7 +194,7 @@ namespace TrainingRecordManager
         //    }
         //}
 
-        // 读取员工 Excel 文件
+        // 读取导入 Excel 文件
         private List<Employee> ReadEmployeesExcelFile(string filePath)
         {
             var employees = new List<Employee>();
@@ -221,7 +221,7 @@ namespace TrainingRecordManager
                     {
                         if (worksheet.Cells[row, 3].Text == null || worksheet.Cells[row, 3].Text == "")
                         {
-                            throw new FormatException($"请检查数据，{row}行的身份证不能为空");
+                            throw new FormatException($"请检查数据，{row}行的不能为空");
                         }
 
                         var employee = new Employee

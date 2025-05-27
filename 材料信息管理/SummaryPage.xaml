@@ -55,14 +55,6 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="删除" Width="100">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="删除" Click="DeleteButton_Click" Tag="{Binding Wuliaoid}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
